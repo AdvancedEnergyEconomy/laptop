@@ -53,7 +53,7 @@ fancy_echo "Installing python to avoid postgres install fail ..."
   brew install python
   
 fancy_echo "Installing Postgres, a good open source relational database ..."
-  LDFLAGS:  -L/usr/local/opt/ossp-uuid/lib CPPFLAGS: -I/usr/local/opt/ossp-uuid/include brew install postgres --with-tclconfig=/usr/local/Cellar/tcl-tk/8.6.0/lib
+  LDFLAGS:  -L/usr/local/opt/ossp-uuid/lib CPPFLAGS: -I/usr/local/opt/ossp-uuid/include brew install postgres
   initdb /usr/local/var/postgres -E utf8
 
 fancy_echo "Installing Redis, a good key-value database ..."
