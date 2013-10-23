@@ -1,0 +1,4 @@
+53c53
+<     args << "--with-tcl" unless build.include? 'no-tcl'
+---
+>     args << "--with-tclconfig=/usr/local/Cellar/tcl-tk/8.6.0/lib" unless build.include? 'no-tcl'
