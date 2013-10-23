@@ -5,7 +5,9 @@ fancy_echo "Installing python to avoid postgres install fail ..."
   brew install python
   
 fancy_echo "Patching homebrew postgres to use keg tcl-rk ..."
-  patch -b /usr/local/Library/Formula/postgresql.rb <(curl -fsS https://raw.github.com/AdvancedEnergyEconomy/laptop/master/postgresql_brew_tcl_patch)        
+  curl -fsS https://raw.github.com/AdvancedEnergyEconomy/laptop/master/postgresql_brew_tcl_patch > /tmp/postgresql_brew_tcl_patch
+  patch -b /usr/local/Library/Formula/postgresql.rb /tmp/postgresql_brew_tcl_patch
+  rm -f /tmp/postgresql_brew_tcl_patch
           
 fancy_echo "Installing Postgres, a good open source relational database ..."
   brew install postgres
