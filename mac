@@ -52,7 +52,7 @@ fancy_echo "Installing TCL-TK, not included with Mavericks ..."
 fancy_echo "Installing python to avoid postgres install fail ..."
   brew install python
   
-fancy_echo "Patching homebrew postgres wot use keg tcl-rk ..."
+fancy_echo "Patching homebrew postgres to use keg tcl-rk ..."
   patch -b /usr/local/Library/Formula/postgresql.rb postgresql_brew_tcl_patch	
 	  
 fancy_echo "Installing Postgres, a good open source relational database ..."
