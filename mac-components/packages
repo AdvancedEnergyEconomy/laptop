@@ -1,5 +1,14 @@
+fancy_echo "Installing TCL-TK, not included with Mavericks ..."
+  brew install tcl-tk
+  
+fancy_echo "Installing python to avoid postgres install fail ..."
+  brew install python
+  
+fancy_echo "Patching homebrew postgres to use keg tcl-rk ..."
+  patch -b /usr/local/Library/Formula/postgresql.rb <(curl -fsS https://raw.github.com/AdvancedEnergyEconomy/laptop/master/postgresql_brew_tcl_patch)        
+          
 fancy_echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
+  brew install postgres
   initdb /usr/local/var/postgres -E utf8
 
 fancy_echo "Installing Redis, a good key-value database ..."
