@@ -46,8 +46,14 @@ if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
 fi
 
 ### end mac-components/homebrew
+fancy_echo "Installing TCL-TK, not included with Mavericks ..."
+  brew install tcl-tk
+  
+fancy_echo "Installing python to avoid postgres install fail ..."
+  brew install python
+  
 fancy_echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-tcl --no-python
+  brew install postgres --with-tclconfig=/usr/local/Cellar/tcl-tk/8.6.0/lib
   initdb /usr/local/var/postgres -E utf8
 
 fancy_echo "Installing Redis, a good key-value database ..."
